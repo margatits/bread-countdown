@@ -20,31 +20,33 @@ body{
   letter-spacing: 5px;
 }
 
-.days, .hours, .minutes {
+.days, .hours, .minutes, .seconds {
   display: inline-block;
-  padding: 10px;
-  width: 80px;
+  padding: 20px;
+  width: 100px;
   border-radius: 5px;
 }
 
 .days {
-  background: #FAFAFA;
-	color: #000000;
+  background: #EF2F3C;
 }
 
 .hours {
-  background: #FAFAFA;
-  color: #000000;
+  background: #eeeeee;
+  color: #183059;
 }
 
 .minutes {
-  background: #FAFAFA;
-	color: #000000;
+  background: #276FBF;
+}
+
+.seconds {
+  background: #F0A202;
 }
 
 .numbers {
   font-family: 'Montserrat', sans-serif;
-  color:  #000000;
+  color:  #183059;
   font-size: 4em;
   text-align: center;
 }
@@ -75,18 +77,25 @@ body{
   width: 80px;
   left: 60%;
   top: 5%;
+
+
 }
+
+
     </style>
 </head>
 <body>
     
 <div id="timer">
+
     <div class="days"> 
         <div id="days" class="numbers "> </div>days</div> 
       <div class="hours"> 
         <div  id="hours" class="numbers"> </div>hours</div> 
       <div class="minutes"> 
         <div  id="minutes" class="numbers"> </div>minutes</div> 
+      <div   class="seconds"> 
+        <div id="seconds" class="numbers"> </div>seconds</div> 
       </div>
 
 </div>
@@ -94,7 +103,7 @@ body{
 </body>
 <script>
     const year = new Date().getFullYear();
-const myDate = new Date('Dec 08, 2023 06:30:00');
+const myDate = new Date('Oct 15, 2024 00:00:00');
 console.log(myDate);
 
 // countdown
@@ -110,11 +119,15 @@ let timer = setInterval(function() {
   let days = Math.floor(diff / (1000 * 60 * 60 * 24));
   let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   // display
   document.getElementById("days").innerHTML=days
   document.getElementById("hours").innerHTML=hours
   document.getElementById("minutes").innerHTML=minutes
+  document.getElementById("seconds").innerHTML=seconds
+
+
 
 }, 1);
 </script>
